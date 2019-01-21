@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>FlexBox Layout</title>
+  <style>
+    .container {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    
+    .box {
+      width: 33%;
+      height: 200px;
+    }
+    
+    .red {
+      background-color: red;
+      order:3;
+      width: 100px;
+    }
+    .blue {
+       background-color: blue;
+      order:2;
+      width: 300px;
+    }
+     .green {
+       background-color: green;
+       order: 1;
+       width: 130px;
+    }
+    
+
+
+  </style>
+</head>
+<body>
+	<div class="container">
+    <div class="box red">
+      
+    </div>
+     <div class="box green">
+    </div>
+     <div class="box blue">
+    </div>
+  </div>
+</body>
+</html>
