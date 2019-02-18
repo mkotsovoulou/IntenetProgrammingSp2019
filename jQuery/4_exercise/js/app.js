@@ -20,7 +20,7 @@ $("#password2").focusout(function(){
 });
 
 $("#subscribe").change( function(){
-   if( $(this).is(':checked') )  
+   if( $(this).is(':checked') )
      $("#email-area").fadeIn(1000);
   else
     $("#email-area").fadeOut(1000);
