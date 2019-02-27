@@ -1,7 +1,9 @@
 <?php 
-$table = [['Name'=>'Maira', 'Course'=>'ITC4314'],
+$table = [
+  ['Name'=>'Maira', 'Course'=>'ITC4314'],
         	['Name'=>'Nick', 'Course'=>'ITC3225'],
-					['Name'=>'Chris', 'Course'=>'ITC1070']];
+					['Name'=>'Chris', 'Course'=>'ITC1070']
+];
 
 echo "<table border='1' style='border-collapse: collapse;'>";
 foreach($table as $row=> $assoc)
