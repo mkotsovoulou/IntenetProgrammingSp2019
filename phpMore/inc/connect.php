@@ -1,4 +1,5 @@
 <?php
+//echo "Connect file included";
 include ("config.php");
 try {
 	$db = new PDO("mysql:host=" . DB_HOST .

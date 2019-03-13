@@ -15,7 +15,7 @@ insert into products values (103, "Mike the Frog Shirt, Blue", "img/shirts/shirt
 insert into products values (104, "Logo Shirt, Green", "img/shirts/shirt-104.jpg", 18,                                           "YKVL5F87E8PCS", "M/L");             
                
                
-CREATE TABLE IF NOT EXISTS `users` (
+CREATE TABLE IF NOT EXISTS `pusers` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
@@ -24,5 +24,5 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) )
 ENGINE = InnoDB;
 
-insert into users (email, password, is_admin) values ('mkotsovoulou@acg.edu', 'a123', 'Y');
-insert into users (email, password)           values ('user@acg.edu', 'user');
+insert into pusers (email, password, is_admin) values ('mkotsovoulou@acg.edu', 'a123', 'Y');
+insert into pusers (email, password)           values ('user@acg.edu', 'user');

@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+//make the controller using php artisan make:controller ProjectsController
+Route::get('/projects', 'ProjectsController@index');

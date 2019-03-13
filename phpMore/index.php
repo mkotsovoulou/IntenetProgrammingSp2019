@@ -1,5 +1,13 @@
 <?php
 include('header.php');
-include('main.php');
+include('carousel.php');
+?>
+ <main role="main">
+
+<?php 
+   include('marketing.php');
+   ?>
+</main>
+<?php
 include('footer.php');
 ?>

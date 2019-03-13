@@ -8,4 +8,4 @@ foreach($products as $key => $product) {
            $product["name"]  . ", " .
            $product["price"] . " Euros <br>";
     echo "<img src='../" . $product["img"] . "' width='100px'/>";
-    }
+}
