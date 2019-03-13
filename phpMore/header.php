@@ -1,3 +1,5 @@
+<?php 
+session_start(); ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -24,13 +26,26 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Link</a>
             </li>
+             <li class="nav-item">
+             <?php if (isset($_SESSION["username"])) { ?>
+               <a class="nav-link" href="logout.php">Logout</a>
+              <?php }  else { ?> 
+               <a class="nav-link" href="login.php">Login</a>
+                <?php
+                 } ?>
+            </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled</a>
+              <?php echo $_SESSION["username"]; 
+                 if ($_SESSION["is_admin"] == 'Y') { ?>
+                    <a class="nav-link" href="admin.php">Admin Panel</a>
+              <?php
+                 }?>
+              
             </li>
           </ul>
           <form class="form-inline mt-2 mt-md-0">

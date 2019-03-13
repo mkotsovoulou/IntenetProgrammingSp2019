@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8" />
-	<title>Login</title>
-</head>
-<body>
+<?php
+include('header.php');
+?>
+ <main role="main" style="
+    margin: 50px;">
 	<h1>
      Login
   </h1>
@@ -36,7 +34,15 @@ try {
   $results->execute();
 	if ($results->rowCount() == 0)
     $message = "Wrong username or password";
-  else $message ="Welcome " .$username;
+  else {
+    $userdata = $results->fetch();
+    $_SESSION["is_admin"] = $userdata["is_admin"];
+    $_SESSION["username"] = $username;
+    $message ="Welcome " .$username;
+    ?>
+    <meta http-equiv="refresh" content="3; url=index.php" /> 
+ <?php
+  }
 } catch (Exception $e) {
    echo "Data could not be retrieved from the database." . $e;
    exit;
@@ -48,5 +54,8 @@ try {
   
     <div id="message"> <?php echo $message ?>
   </div>
-</body>
-</html>
+
+   </main>
+<?php
+include('footer.php');
+?>
