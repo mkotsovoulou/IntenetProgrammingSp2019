@@ -13,8 +13,6 @@
     <!-- Custom styles for this template -->
     <link href="sticky-footer.css" rel="stylesheet">
     <link href="carousel.css" rel="stylesheet">
-     <!-- Custom styles for this template -->
-      <link href="carousel.css" rel="stylesheet">
 </head>
 <body>
         <header>

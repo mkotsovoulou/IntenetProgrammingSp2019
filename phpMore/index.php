@@ -1,8 +1,10 @@
 <?php
 include('header.php');
-include('carousel.php');
+//include('carousel.php');
 ?>
- <main role="main">
+
+ <main role="main" style="
+    margin-top: 50px;">
 
 <?php 
    include('marketing.php');
