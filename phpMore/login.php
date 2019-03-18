@@ -20,12 +20,12 @@ include('header.php');
 
 if (isset($_POST["login"]))
 { 
-  
+  $username = $_POST["username"];
+$password = $_POST["password"];
 $connect_file=$_SERVER["DOCUMENT_ROOT"]. "/phpMore/inc/connect.php";
 include($connect_file);
 
-$username = $_POST["username"];
-$password = $_POST["password"];
+
   
 try {
   $results = $db->prepare("select * from pusers where email=? and password=?");

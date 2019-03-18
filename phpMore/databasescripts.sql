@@ -8,7 +8,11 @@ CREATE TABLE IF NOT EXISTS `products` (
   `sizes` VARCHAR(45) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
+  
+ALTER TABLE `products` modify `id` INT AUTO_INCREMENT;
+ALTER TABLE `products` AUTO_INCREMENT = 105;
                
+                
 insert into products values (102, "Mike the Frog Shirt, Black",  "img/shirts/shirt-102.jpg", 20,
                              "SXKPTHN2EES3J", "S/M/L/XL" );
 insert into products values (103, "Mike the Frog Shirt, Blue", "img/shirts/shirt-103.jpg", 22,                                            "7T8LK5WXT5Q9J", "S/M");
