@@ -1,5 +1,8 @@
 <?php
 
+$connect_file=$_SERVER["DOCUMENT_ROOT"]. "/phpMore/inc/connect.php";
+include_once($connect_file);
+
 function insertProduct($name, $img, $price) {
   $connect_file=$_SERVER["DOCUMENT_ROOT"]. "/phpMore/inc/connect.php";
   include($connect_file);
@@ -47,8 +50,7 @@ function updateProduct($id, $name, $img, $price) {
 }
 
 function listAllProducts() {
-  $connect_file=$_SERVER["DOCUMENT_ROOT"]. "/phpMore/inc/connect.php";
-  include($connect_file);
+ global $db;
 	$results = $db->query("select * from products");
 	$products = $results->fetchAll(PDO::FETCH_ASSOC);
   $table = '<table class="table table-striped">
