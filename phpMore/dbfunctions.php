@@ -58,8 +58,8 @@ function listAllProducts() {
     <tr>
       <th scope="col">#</th>
       <th scope="col">Name</th>
-      <th scope="col">Image</th>
       <th scope="col">Price</th>
+      <th scope="col">Image</th>
        <th scope="col">Delete</th>
     </tr>
   </thead>
@@ -70,7 +70,7 @@ function listAllProducts() {
      $name = $product['name'];
      $price = $product['price'];
      $img=  $product['img'];
-     echo "<tr><th scope='row'>$id</th><td>$name</td><td>$price</td><td><img src='./" . $img. " width='50px'/></td><td><button> Delete </button></td></tr>";
+     echo "<tr><th scope='row'>$id</th><td>$name</td><td>$price</td><td><img src='./$img' width='50px'/></td><td><button> Delete </button></td></tr>";
     }
     echo '</tbody></table>';
 }
