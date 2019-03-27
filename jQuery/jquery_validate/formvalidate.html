@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+  <div class="control-group">
+	<form class="cmxform" id="addCategory" method="get" action="#">
+  <fieldset>
+    <legend>Add CAtegoty details</legend>
+    <p>
+      <label for="cname">Category Name (required, at least 2 characters)</label>
+      <input id="categoryname" name="categoryname" type="text" required>
+    </p>
+    <p>
+      <label for="description">Description (required)</label>
+      <input id="description" type="text" name="description" required>
+    </p>
+    <p>
+      <label for="url">URL (optional)</label>
+      <input id="url" type="url" name="url">
+    </p>
+    <p>
+      <input class="submit" type="submit" value="Submit">
+    </p>
+  </fieldset>
+</form>
+</div>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+  <script>
+ <!-- Add Category validation -->
+     $("#addCategory").validate({
+        rules: {
+            categoryname: {
+                required:true,
+                minlength:5
+            },
+            description: {
+                  required:true
+            },
+            url: {
+                  required:true
+            }
+        },
+        errorClass: "help-inline",
+        errorElement: "span",
+        highlight: function(element, errorClass, validClass) {
+            $(element).parents('.control-group').addClass('error');
+        },
+        unhighlight: function(element, errorClass, validClass) {
+            $(element).parents('.control-group').removeClass('error');
+            $(element).parents('.control-group').addClass('success');
+        }
+    });
+    </script>
+</body>
+</html> 

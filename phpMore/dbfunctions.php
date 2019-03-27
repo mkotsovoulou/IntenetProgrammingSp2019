@@ -28,7 +28,7 @@ function deleteProduct($id) {
     $insert->execute();
     return true;
   } catch (PDOException $e) {
-    echo "Database product delete failure " . $e->getMessage();
+    //echo "Database product delete failure " . $e->getMessage();
     return false;
   }
 }
@@ -75,4 +75,31 @@ function listAllProducts() {
     echo '</tbody></table>';
 }
 
+
+function adminListAllProducts() {
+ global $db;
+	$results = $db->query("select * from products");
+	$products = $results->fetchAll(PDO::FETCH_ASSOC);
+  $table = '<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Image</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>';
+   echo $table;
+   foreach($products as $key => $product) {
+     $id = $product['id'];
+     $name = $product['name'];
+     $price = $product['price'];
+     $img=  $product['img'];
+     echo "<tr><th scope='row'>$id</th><td>$name</td><td>$price</td><td><img src='./$img' width='50px'/></td>
+     <form id='delete' name='delete' method='post' action='deleteProduct.php'><td><input type='hidden' id='productid' name='productid' value='$id'/><button type='submit' id='deleteBtn' name='deleteBtn'> Delete </button></td></tr>";
+    }
+    echo '</tbody></table>';
+}
 ?>

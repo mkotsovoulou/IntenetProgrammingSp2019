@@ -8,9 +8,9 @@ include('header.php');
 ?>
  <main role="main" style="margin: 50px;">
 
-   <button>
-     Manage Products
-   </button>
+   <a href="manageProducts.php">  Manage Products</a>
+    
+   
     <button>
      Manage Users
    </button>
