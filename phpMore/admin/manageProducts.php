@@ -1,9 +1,9 @@
 <?php
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
-
-include('header.php');
-include('dbfunctions.php');
+define("INC_PATH",$_SERVER["DOCUMENT_ROOT"]."/phpMore/inc");
+include_once(INC_PATH . '/header.php');
+include_once(INC_PATH . '/dbfunctions.php');
 /*
  if ($_SESSION["is_admin"] != 'Y') { ?>
  <meta http-equiv="refresh" content="0; url=index.php" /> 
@@ -12,7 +12,9 @@ include('dbfunctions.php');
 ?>
  <main role="main" style="margin: 50px;">
   <form method="post" action="<?php echo htmlentities($_SERVER['PHP_SELF']);?>"  enctype="multipart/form-data">
-     <label for="productName">Product Name</label>
+
+     <input type="hidden" id="id" name="id" value=""/> <br>
+         <label for="productName">Product Name</label>
      <input type="text" id="productName" name="productName"/> <br>
       <label for="price">Price</label>
      <input type="text" id="price" name="price"/> <br>
@@ -20,9 +22,8 @@ include('dbfunctions.php');
      <label for="imageFilename">Image </label>
     <input type="file" name="imageFilename" id="imageFilename"> <br>
 
-   
-    
-    <input type="submit" name="insert" value="Insert"/>
+    <input type="submit" id="insert" name="insert" value="Insert"/>
+        <input type="submit" id="update" name="update" value="Update"/>
   </form>
   
 </main>
@@ -75,11 +76,33 @@ if ($uploadOk == 0) {
   $productName = $_POST["productName"];
   $imageFilename = $target_file;
   $price = $_POST["price"];
-  
-
   insertProduct($productName, $imageFilename, $price);
 }
-
+if (isset($_POST["update"]))
+{ 
+  $productName = $_POST["productName"];
+  $price = $_POST["price"];
+  $id = $_POST["id"];
+  echo "ready to update";
+  updateProduct($id, $productName, $price);
+}
 adminListAllProducts();
-include('footer.php');
+?>
+<script>
+   $('#update').hide();
+	$('#updateBtn').on('click', function(){
+  alert($(this).parent().get("#productid").val());
+  });
+  
+  function copyFields() {
+    $('#insert').hide();
+    $('#update').show();
+    $('#productName').closest().val($('#pname').val());
+    $('#price').val($('#pprice').val());
+    $('#id').val($('#productid').val());
+  }
+</script>
+<?php
+include(INC_PATH . '/footer.php');
+include(INC_PATH . '/endhtml.php');
 ?>

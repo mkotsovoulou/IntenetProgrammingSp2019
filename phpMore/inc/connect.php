@@ -9,6 +9,6 @@ try {
 	$db->exec("SET NAMES 'utf8'");
   /*echo ("Connection successful");*/
 } catch (Exception $e) {
-	echo "Could not connect to the database.";
+	echo "Could not connect to the database." . $e;
 	exit;
 }

@@ -1,11 +1,13 @@
 <?php
-include('header.php');
+include('inc/header.php');
 ?>
 
-This is the contact us page
-bla bla
+<h1>
+  Contact us
+</h1>
 
 
 <?php 
-include('footer.php');
+include('inc/footer.php');
+include('inc/endhtml.php');
 ?>

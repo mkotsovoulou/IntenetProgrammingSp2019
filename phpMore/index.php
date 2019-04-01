@@ -1,13 +1,14 @@
 <?php
-include('header.php');
-include('carousel.php');
+include('inc/header.php');
+include('inc/carousel.php');
 ?>
  <main role="main" style="
     margin-top: 50px;">
 <?php 
-   include('marketing.php');
+   include('inc/marketing.php');
 ?>
 </main>
 <?php
-include('footer.php');
+include('inc/footer.php');
+include('inc/endhtml.php');
 ?>

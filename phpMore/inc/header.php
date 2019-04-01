@@ -8,18 +8,18 @@ session_start(); ?>
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
-    <title>Bootstrap</title>
+    <title>ITC4314 Demo</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Custom styles for this template -->
-    <link href="sticky-footer.css" rel="stylesheet">
-    <link href="carousel.css" rel="stylesheet">
+    <link href="\phpMore\css\sticky-footer.css" rel="stylesheet">
+    <link href="\phpMore\css\carousel.css" rel="stylesheet">
 </head>
 <body>
         <header>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="#">Carousel</a>
+        <a class="navbar-brand" href="#">ITC4314</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -29,7 +29,7 @@ session_start(); ?>
               <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" href="contactus.php">Contact us</a>
             </li>
              <li class="nav-item">
              <?php if (isset($_SESSION["username"])) { ?>
@@ -42,7 +42,7 @@ session_start(); ?>
             <li class="nav-item">
               <?php echo $_SESSION["username"]; 
                  if ($_SESSION["is_admin"] == 'Y') { ?>
-                    <a class="nav-link" href="admin.php">Admin Panel</a>
+                    <a class="nav-link" href="/phpMore/admin/admin.php">Admin Panel</a>
               <?php
                  }?>
               

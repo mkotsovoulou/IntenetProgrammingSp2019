@@ -1,6 +1,6 @@
 <?php 
-include("header.php");
-include("productsDB.php");
+include("inc/header.php");
+include("inc/productsDB.php");
 ?>
 <h1>
   List of Products
@@ -23,4 +23,7 @@ foreach($products as $rowKey => $productInfo)
     }
 } */
 ?>
-<?php include ("footer.php"); ?>
+<?php 
+include ("inc/footer.php"); 
+include('inc/endhtml.php');
+?>

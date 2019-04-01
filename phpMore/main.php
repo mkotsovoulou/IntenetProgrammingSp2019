@@ -1,4 +1,4 @@
-<section id="main">
+<section id="main" class="container">
 	
   <h1>
      welcome

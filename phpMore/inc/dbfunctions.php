@@ -32,15 +32,14 @@ function deleteProduct($id) {
     return false;
   }
 }
-function updateProduct($id, $name, $img, $price) {
+function updateProduct($id, $name, $price) {
   $connect_file=$_SERVER["DOCUMENT_ROOT"]. "/phpMore/inc/connect.php";
   include($connect_file);
   try {
-    $insert = $db->prepare("update products set name = ?, img=?, price=? where id=?");
+    $insert = $db->prepare("update products set name = ?, price=? where id=?");
     $insert->bindValue(1, $name);
-    $insert->bindValue(2, $img);
-    $insert->bindValue(3, $price);
-    $insert->bindValue(4, $id);
+    $insert->bindValue(2, $price);
+    $insert->bindValue(3, $id);
     $insert->execute();
     return true;
   } catch (PDOException $e) {
@@ -60,7 +59,6 @@ function listAllProducts() {
       <th scope="col">Name</th>
       <th scope="col">Price</th>
       <th scope="col">Image</th>
-       <th scope="col">Delete</th>
     </tr>
   </thead>
   <tbody>';
@@ -70,7 +68,7 @@ function listAllProducts() {
      $name = $product['name'];
      $price = $product['price'];
      $img=  $product['img'];
-     echo "<tr><th scope='row'>$id</th><td>$name</td><td>$price</td><td><img src='./$img' width='50px'/></td><td><button> Delete </button></td></tr>";
+     echo "<tr><th scope='row'>$id</th><td>$name</td><td>$price</td><td><img src='./$img' width='50px'/></td></tr>";
     }
     echo '</tbody></table>';
 }
@@ -88,6 +86,7 @@ function adminListAllProducts() {
       <th scope="col">Price</th>
       <th scope="col">Image</th>
       <th scope="col">Delete</th>
+       <th scope="col">Update</th>
     </tr>
   </thead>
   <tbody>';
@@ -98,7 +97,10 @@ function adminListAllProducts() {
      $price = $product['price'];
      $img=  $product['img'];
      echo "<tr><th scope='row'>$id</th><td>$name</td><td>$price</td><td><img src='./$img' width='50px'/></td>
-     <form id='delete' name='delete' method='post' action='deleteProduct.php'><td><input type='hidden' id='productid' name='productid' value='$id'/><button type='submit' id='deleteBtn' name='deleteBtn'> Delete </button></td></tr>";
+     <td><form id='delete' method='post' action='deleteProduct.php'><input type='hidden' id='productid' name='productid' value='$id'/><button type='submit' id='deleteBtn' name='deleteBtn'> Delete </button></form></td>";
+     echo "<td><form id='update' method='post' action='javascript:copyFields();'><input type='hidden' id='productid' name='productid' value='$id'/>
+     <input type='hidden' id='pname' name='pname' value='$name'/>
+     <input type='hidden' id='pprice' name='price' value='$price'/><button type='submit' id='updateBtn' name='updateBtn'> Update </button></form></td></tr>";
     }
     echo '</tbody></table>';
 }
